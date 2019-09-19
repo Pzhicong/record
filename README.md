@@ -6,4 +6,4 @@
 
 
 [drag拖拉一](http://pzhicong.com/record/drag/index.html)  
-[drag拖拉二（有问题，已遗弃）](http://pzhicong.com/record/drag/drag.html)
+[drag拖拉二（有问题，已遗弃）](http://pzhicong.com/record/drag/out.html)
