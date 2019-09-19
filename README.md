@@ -5,4 +5,5 @@
 [公司滚动](http://pzhicong.com/record/auto-scroll/company.html)  
 
 
-[drag拖拉一](http://pzhicong.com/record/drag/index.html)
+[drag拖拉一](http://pzhicong.com/record/drag/index.html)  
+[drag拖拉二（有问题，已遗弃）](http://pzhicong.com/record/drag/drag.html)

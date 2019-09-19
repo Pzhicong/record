@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>有问题的拖拽</title>
+    <style>
+        .container {
+            position: fixed;
+            background: #fff;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+            width: 720px;
+            height: 580px;
+            border: 1px solid rgba(0, 0, 0, 0.09);
+        }
+
+        .target {
+            background: gray;
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100px;
+            height: 50px;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="target"></div>
+    </div>
+    <script src="js/drag.js"></script>
+</body>
+
+</html>
