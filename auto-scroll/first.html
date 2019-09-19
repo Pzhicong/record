@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-size: 12px;
-      }
-      #demo {
-        overflow: hidden;
-        height: 80px;
-        width: 280px;
-        margin: 90px auto;
-        border: 1px solid gray;
-      }
-      #demo1 {
-        margin-top: 80px;
-      }
-      #demo1,
-      #demo2 {
-        height: auto;
-        text-align: left;
-      }
-      #demo1 li,
-      #demo2 li {
-        list-style-type: none;
-        height: 22px;
-        text-align: left;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="demo">
-      <ul id="demo1">
-        <li><a href="#" target="_blank">1111111</a></li>
-        <li><a href="#" target="_blank">2222222</a></li>
-        <li><a href="#" target="_blank">3333333</a></li>
-        <li><a href="#" target="_blank">4444444</a></li>
-        <li><a href="#" target="_blank">5555555</a></li>
-        <li><a href="#" target="_blank">6666666</a></li>
-        <li><a href="#" target="_blank">7777777</a></li>
-      </ul>
-      <div id="demo2"></div>
-    </div>
-    <script>
-      var speed = 40;
-      window.onload = function() {
-        var demo = document.getElementById("demo");
-        var demo2 = document.getElementById("demo2");
-        var demo1 = document.getElementById("demo1");
-        demo2.innerHTML = demo1.innerHTML;
-        function Marquee() {
-          if (demo.scrollTop >= demo1.offsetHeight + demo.offsetHeight) {
-            demo.scrollTop = demo.offsetHeight;
-          } else {
-            demo.scrollTop = demo.scrollTop + 1;
-            // console.log(demo.scrollTop);
-          }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-size: 12px;
+    }
+
+    #father {
+      overflow: hidden;
+      height: 80px;
+      width: 280px;
+      margin: 90px auto;
+      border: 1px solid gray;
+    }
+
+    #son1 {
+      margin-top: 80px;
+    }
+
+    #son1,
+    #son2 {
+      height: auto;
+      text-align: left;
+    }
+
+    #son1 li,
+    #son2 li {
+      list-style-type: none;
+      height: 22px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="father">
+    <ul id="son1">
+      <li><a href="#" target="_blank">1111111</a></li>
+      <li><a href="#" target="_blank">2222222</a></li>
+      <li><a href="#" target="_blank">3333333</a></li>
+      <li><a href="#" target="_blank">4444444</a></li>
+      <li><a href="#" target="_blank">5555555</a></li>
+      <li><a href="#" target="_blank">6666666</a></li>
+      <li><a href="#" target="_blank">7777777</a></li>
+    </ul>
+    <div id="son2"></div>
+  </div>
+  <script>
+    var speed = 40;
+    window.onload = function () {
+      var father = document.getElementById("father");
+      var son2 = document.getElementById("son2");
+      var son1 = document.getElementById("son1");
+      son2.innerHTML = son1.innerHTML;
+      function Marquee() {
+        if (father.scrollTop >= son1.offsetHeight + father.offsetHeight) {
+          father.scrollTop = father.offsetHeight;
+        } else {
+          father.scrollTop = father.scrollTop + 1;
+          // console.log(demo.scrollTop);
         }
-        var MyMar = setInterval(Marquee, speed);
-        demo.onmouseover = function() {
-          // clearInterval(MyMar);
-        };
-        demo.onmouseout = function() {
-          // MyMar = setInterval(Marquee, speed);
-        };
-        demo.onclick = function() {
-          // 重启
-          clearInterval(MyMar);
-          demo.scrollTop = 0;
-          MyMar = setInterval(Marquee, speed);
-        };
+      }
+      var MyMar = setInterval(Marquee, speed);
+      father.onmouseover = function () {
+        // clearInterval(MyMar);
       };
+      father.onmouseout = function () {
+        // MyMar = setInterval(Marquee, speed);
+      };
+      father.onclick = function () {
+        // 重启
+        clearInterval(MyMar);
+        father.scrollTop = 0;
+        MyMar = setInterval(Marquee, speed);
+      };
+    };
 
       // function step(timestamp) {
       //   if (!start) start = timestamp;
@@ -89,6 +96,7 @@
       // }
 
       // window.requestAnimationFrame(step);
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
