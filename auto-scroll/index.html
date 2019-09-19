@@ -1,92 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-size: 12px;
-      }
-      #container {
-        overflow: hidden;
-        height: 80px;
-        width: 280px;
-        margin: 90px auto;
-        border: 1px solid gray;
-      }
-      #target {
-        margin-top: 80px;
-        height: auto;
-        text-align: left;
-      }
-      #target li,
-      #target li {
-        list-style-type: none;
-        height: 22px;
-        text-align: left;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <ul id="target">
-        <li><a href="#" target="_blank">1111111</a></li>
-        <!-- <li><a href="#" target="_blank">2222222</a></li>
-        <li><a href="#" target="_blank">3333333</a></li>
-        <li><a href="#" target="_blank">4444444</a></li>
-        <li><a href="#" target="_blank">5555555</a></li>
-        <li><a href="#" target="_blank">6666666</a></li>
-        <li><a href="#" target="_blank">7777777</a></li>
-        <li><a href="#" target="_blank">1111111</a></li>
-        <li><a href="#" target="_blank">2222222</a></li>
-        <li><a href="#" target="_blank">3333333</a></li>
-        <li><a href="#" target="_blank">4444444</a></li>
-        <li><a href="#" target="_blank">5555555</a></li>
-        <li><a href="#" target="_blank">6666666</a></li>
-        <li><a href="#" target="_blank">7777777</a></li> -->
-      </ul>
-    </div>
-    <script>
-      window.onload = function() {
-        var container = document.getElementById("container");
-        var target = document.getElementById("target");
-        var halfTargetHeight = target.offsetHeight / 2,
-          containerHeight = container.offsetHeight;
-        var isStop = false;
-        let animFrame = null;
-        function Marquee() {
-          cancelAnimationFrame(animFrame);
-          animFrame = null;
-          if (container.scrollTop >= halfTargetHeight + containerHeight) {
-            var lis = document.querySelectorAll("li");
-            var fragmeng = document.createDocumentFragment();
-            for (var i = 0; i < 7; i++) {
-              fragmeng.appendChild(lis[i]);
-            }
-            target.appendChild(fragmeng);
-            container.scrollTop = containerHeight;
-          } else {
-            container.scrollTop += 1;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-size: 12px;
+    }
+
+    #container {
+      overflow: hidden;
+      height: 80px;
+      width: 280px;
+      margin: 90px auto;
+      border: 1px solid gray;
+    }
+
+    #target {
+      margin-top: 80px;
+      height: auto;
+      text-align: left;
+    }
+
+    #target li,
+    #target li {
+      list-style-type: none;
+      height: 22px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <ul id="target">
+      <li><a href="#" target="_blank">1111111</a></li>
+      <li><a href="#" target="_blank">2222222</a></li>
+      <li><a href="#" target="_blank">3333333</a></li>
+      <li><a href="#" target="_blank">4444444</a></li>
+      <li><a href="#" target="_blank">5555555</a></li>
+      <li><a href="#" target="_blank">6666666</a></li>
+      <li><a href="#" target="_blank">7777777</a></li>
+      <li><a href="#" target="_blank">1111111</a></li>
+      <li><a href="#" target="_blank">2222222</a></li>
+      <li><a href="#" target="_blank">3333333</a></li>
+      <li><a href="#" target="_blank">4444444</a></li>
+      <li><a href="#" target="_blank">5555555</a></li>
+      <li><a href="#" target="_blank">6666666</a></li>
+      <li><a href="#" target="_blank">7777777</a></li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function () {
+      var container = document.getElementById("container");
+      var target = document.getElementById("target");
+      var halfTargetHeight = target.offsetHeight / 2,
+        containerHeight = container.offsetHeight;
+      var isStop = false;
+      let animFrame = null;
+      function Marquee() {
+        cancelAnimationFrame(animFrame);
+        animFrame = null;
+        if (container.scrollTop >= halfTargetHeight + containerHeight) {
+          var lis = document.querySelectorAll("li");
+          var fragmeng = document.createDocumentFragment();
+          for (var i = 0; i < 7; i++) {
+            fragmeng.appendChild(lis[i]);
           }
-          if (!isStop) {
-            animFrame = window.requestAnimationFrame(Marquee);
-          }
+          target.appendChild(fragmeng);
+          container.scrollTop = containerHeight;
+        } else {
+          container.scrollTop += 1;
         }
-        Marquee();
-        container.onmouseover = function() {
-          isStop = true;
-        };
-        container.onmouseout = function() {
-          isStop = false;
-          Marquee();
-        };
+        if (!isStop) {
+          animFrame = window.requestAnimationFrame(Marquee);
+        }
+      }
+      Marquee();
+      container.onmouseover = function () {
+        isStop = true;
       };
-    </script>
-  </body>
+      container.onmouseout = function () {
+        isStop = false;
+        Marquee();
+      };
+    };
+  </script>
+</body>
+
 </html>
