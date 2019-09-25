@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xxx</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            border: 1px solid red;
+            position: absolute;
+        }
+
+        .item {
+            height: 30px;
+            width: 100%;
+            line-height: 30px;
+            margin-bottom: 10px;
+            background: gray;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+    <script>
+        var lastScrollTop = 0, scrollIndex = 0, scrollLength = 10, itemList = [];
+        for (var i = 0; i < 1000; i++) {
+            itemList.push(i);
+        }
+        function handleScroll() {
+            let id = document.querySelector('.empty');
+            let parent = id.parentElement;
+            let top = id.getBoundingClientRect().top;
+            let parentPosition = parent.getBoundingClientRect();
+            let parentTop = parentPosition.top;
+            let parentHeight = parent.scrollHeight;
+
+            let offsetTop = parentTop - top;
+            let direction = top - lastScrollTop > 0 ? "down" : "up";
+            // let { scrollIndex, scrollLength } = this.state;
+            if (offsetTop < 100 && direction == "down") {
+                scrollIndex = scrollIndex - 50;
+            }
+            if (parentHeight - offsetTop - 280 < 100 && direction == "up") {
+                scrollIndex = scrollIndex + 50;
+            }
+            lastScrollTop = top;
+            scrollIndex = scrollIndex > 0 ? Math.round(scrollIndex) : 0;
+            // this.setState({
+            //     ...this.state,
+            //     scrollIndex: scrollIndex > 0 ? Math.round(scrollIndex) : 0,
+            //     scrollLength: scrollLength
+            // });
+            // this.leaveScroll();
+            render();
+        };
+
+        function render() {
+            console.log(scrollIndex);
+            var renderList = itemList.slice(scrollIndex, scrollIndex + 20);
+            $('.container').html('');
+            var flagment = document.createDocumentFragment();
+            var div = document.createElement('div');
+            div.className = 'empty';
+            flagment.appendChild(div);
+            for (var i = 0; i < renderList.length; i++) {
+                var item = document.createElement('div');
+                item.className = 'item';
+                item.innerHTML = renderList[i];
+                flagment.appendChild(item);
+            }
+            document.querySelector('.container').appendChild(flagment);
+        }
+
+        document.querySelector('.container').addEventListener('scroll', handleScroll);
+        render();
+    </script>
+</body>
+
+</html>
